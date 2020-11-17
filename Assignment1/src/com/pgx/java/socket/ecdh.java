@@ -152,13 +152,21 @@ public class ecdh {
     ByteBuffer depparw = ByteBuffer.wrap(derivedKey); // big-endian by default
     int num = wrapped.getShort(); 
     int mun = depparw.getShort();
-
-    ByteBuffer dbuf = ByteBuffer.allocate(derivedKey.length+sharedSecret.length);
-    num = num + mun;
+    System.out.println("Shared Secret as int:"+num);
+    System.out.println("derivedKey as int:"+mun);
+    ByteBuffer dbuf = ByteBuffer.allocate(16);
+    mun = num + mun;
     dbuf.putInt(num);
     byte[] bytes = dbuf.array(); 
-    
+    ByteBuffer test = ByteBuffer.wrap(bytes);
+    int tes = test.getShort();
+    tes = num - tes;
+    ByteBuffer finTest = ByteBuffer.allocate(16);
+    byte[]decry = finTest.array();
+ 
+    System.out.println("Hopefully back to shared secret"+tes);
     console.printf("Encryper Secret: %s%n", printHexBinary(bytes));
+    console.printf("Decrypted Secret: %s%n", printHexBinary(decry));
     
   }
 }
