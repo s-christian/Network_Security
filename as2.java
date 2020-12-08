@@ -15,14 +15,6 @@ import java.io.*;
 import java.net.*;
 
 
-//HMAC does not require any crypto function, can sign the message with just the message and agreed key 
-//receiver gets message, uses the hash and agreed key to verify the Tag is the same as the received tag 
-//Tag is appended to end of message. 
-//X509 requires a public key and private key. The sender and reciever generates a public and private key pair, exchange public keys
-//sender sends the message, encrypted with receivers public key and signed with senders private key 
-//signing the message involves 
-//receiver verifies the message came from the intended sender, with senders public key and decrypts message with private key 
- 
 public class as2 {
   
   
