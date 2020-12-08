@@ -1,0 +1,23 @@
+This is my email to and response from Dr Wijesinha. 
+
+
+
+Hello Dr Wijesinha,
+I wanted to make sure my understanding of assignment 2 part 1 was correct. 
+I also had a few questions
+
+My Understanding:
+The sender generates a self signed X.509 certificate. This consists of the sender's public key and a hashed signature.
+The sender generates a HMAC using SHA256 with the X.509 certificate and a secret key. The hash computed is what "m" refers to. 
+The sender sends both the certificate and m to the receiver.
+The receiver generates a HMAC using SHA256 and the same secret key. the hash computed is what "mc" refers to. 
+The receiver compares the hash it (mc) computed with the hash received (m), confirming the authenticity of the message it received. In this case the message received is the X.509 certificate. 
+>>>>>>>>>>>>>>>>It is correct.
+
+Questions: 
+Do the sender and receiver need to perform a key exchange for the secret key used to compute the HMAC? If so, I was going to use ECDH.
+>>>>>>>>>>>>>>>>ECDH is one way. A less practical but easier way is to just assume that both have access to the key. Either way is OK.
+
+Do we need to provide some sort of proof confirming our completion of part 2? 
+>>>>>>>>>>>>>>>>include screenshots showing what was done. Add a few details in the readme file that indicate how encryption/decryption was done and the signature was generated/verified.
+
